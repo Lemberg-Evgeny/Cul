@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io.connect('http://localhost');
+  socket.on('send', (data) => {
+    console.log('message', data);
+    socket.emit('my other event', { frome_client: 'data' });
+  });
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
