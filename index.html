@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Socket.io example</title>
+    <!-- /node_modules/socket.io-client/dist/socket.io.js -->
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script>
+      let socket = io()
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+      socket.on('message', (message) => console.log('Message from server: ', message))
+      socket.on('private message', (message) => console.log('Private message from server: ', message))
 
-    <script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io.connect('http://localhost');
-  socket.on('send', (data) => {
-    console.log('message', data);
-    socket.emit('my other event', { frome_client: 'data' });
-  });
-</script>
-</head>
-
-<body>
-
-</body>
-
+      function sendMessageToServer() {
+        socket.emit('message', "I'm client")
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="sendMessageToServer()">Send message to server</button>
+  </body>
 </html>
