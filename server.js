@@ -5,7 +5,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 const host = 'localhost'
-const port = 443
+const port = 80
 
 let clients = []
 

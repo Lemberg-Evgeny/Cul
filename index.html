@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Socket.io example</title>
-    <!-- /node_modules/socket.io-client/dist/socket.io.js -->
-    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
-    <script>
-      let socket = io()
 
-      socket.on('message', (message) => console.log('Message from server: ', message))
-      socket.on('private message', (message) => console.log('Private message from server: ', message))
+<head>
+  <meta charset="UTF-8" />
+  <title>Socket.io example</title>
+  <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+  <script src="clientServer.js"></script>
+  <script>
+    // let socket = io()
 
-      function sendMessageToServer() {
-        socket.emit('message', "I'm client")
-      }
-    </script>
-  </head>
-  <body>
-    <button onclick="sendMessageToServer()">Send message to server</button>
-  </body>
+    // socket.on('message', (message) => console.log('Message from server: ', message))
+    // socket.on('private message', (message) => console.log('Private message from server: ', message))
+
+    // function sendMessageToServer() {
+    //   socket.emit('message', "I'm client")
+    // }
+  </script>
+</head>
+
+<body>
+
+  <h1>Socket app</h1>
+  <div>
+    <input type="text" id="msg">
+  </div>
+  
+    <div id="status"></div>
+  
+  <div>
+    <button id="btnSend">Send message to server</button>
+    <button id="btnClose">Close</button>
+  </div>
+</body>
+
 </html>
