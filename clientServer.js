@@ -10,6 +10,7 @@ window.onload = () => {
         if (socket.readyState === WebSocket.OPEN) {
 
             socket.send(msg.value);
+            console.log(msg.value);
         }
     }
 
@@ -22,7 +23,9 @@ window.onload = () => {
         }
     }
 
-    const socket = new WebSocket('ws://echo.websocket.org');
+    const newLocal = 'ws://localhost:5500';
+    // const socket = new WebSocket('ws://echo.websocket.org');
+    const socket = new WebSocket(newLocal);
 
     socket.onopen = (event) => {
         console.log('Подключено к сокету');
@@ -36,11 +39,12 @@ window.onload = () => {
         } else {
             status.innerHTML = 'полученый тип данных не строка';
         }
+        event.send('ggggggggggggggggggg');
     }
 
     socket.onerror = (event) => {
 
-        console.log('ERROR');
+        console.log('ERROR ' + event.reason);
 
     }
 
